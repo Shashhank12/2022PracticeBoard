@@ -15,4 +15,5 @@ package frc.robot;
 public final class Constants 
 {
     public static final int motorport = 1;
+    public static final int limitswitchport = 0;
 }

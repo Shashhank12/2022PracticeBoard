@@ -6,28 +6,28 @@ package frc.robot.subsystems;
 //All imports
 //import com.revrobotics.CANError;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.ControlType;
+import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.SPI;
+/*import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogGyro; 
+import edu.wpi.first.wpilibj.AnalogGyro;*/ 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 //Public class
 public class Motor extends SubsystemBase 
 {
-  public DigitalInput limitSwitch = new DigitalInput(0);
+  public DigitalInput limitSwitch = new DigitalInput(Constants.limitswitchport);
   /** Creates a new Motor. */
-  public CANSparkMax LOLE = new CANSparkMax(Constants.motorport, MotorType.kBrushless);
+  public CANSparkMax CanSparkMotor = new CANSparkMax(Constants.motorport, MotorType.kBrushless);
   //public ADXRS450_Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
   
   public void setSpeed(double speed)
   {
-    LOLE.getPIDController().setReference(speed, ControlType.kDutyCycle);
-    //LOLE.set(speed);
+    CanSparkMotor.getPIDController().setReference(speed, ControlType.kDutyCycle);
+    //CanSparkMotor.set(speed);
     
   }
   
@@ -38,7 +38,7 @@ public class Motor extends SubsystemBase
     //System.out.println(angle);
     /*if(limitSwitch.get())
     {
-       System.out.println("Switch is onn");
+       System.out.println("Switch is on");
        LOLE.getPIDController().setReference(0.5, ControlType.kDutyCycle);
     }
     else
