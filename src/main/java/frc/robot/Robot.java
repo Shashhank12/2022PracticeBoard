@@ -4,10 +4,16 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
+
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 //import edu.wpi.first.wpilibj.DigitalInput; 
+import frc.robot.subsystems.Motor;
+import frc.robot.subsystems.TalonFXMotor;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -16,7 +22,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot {
+public class Robot extends TimedRobot 
+{
   private Command m_autonomousCommand;
 
 
@@ -31,6 +38,17 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+
+    //ShuffleBoard in SmartDashboard tab: PID Values for CANSparkMotor
+    SmartDashboard.putNumber("P Value for SparkMax", Motor.CanSparkMotorP);
+    SmartDashboard.putNumber("I Value for SparkMax", Motor.CanSparkMotorI);
+    SmartDashboard.putNumber("D Value for SparkMax", Motor.CanSparkMotorD);
+
+    //ShuffleBoard in SmartDashboard tab: PID Values for TalonFXMotor
+    SmartDashboard.putNumber("P Value for TalonFX", TalonFXMotor.TalonFX_P);
+    SmartDashboard.putNumber("I Value for TalonFX", TalonFXMotor.TalonFX_I);
+    SmartDashboard.putNumber("D Value for TalonFX", TalonFXMotor.TalonFX_D);
+
   }
 
   /**
@@ -47,11 +65,14 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+    
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+    
+  }
 
   @Override
   public void disabledPeriodic() {}
@@ -84,17 +105,16 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {
-    RobotContainer.m_motor.setSpeed(0.5);
-    /*if(limitSwitch.get())
-    {
-      System.out.println("Switch on");
-    }
-    else
-    {
-      System.out.println("Switch off");
-    }*/
-    //System.out.println(m_robotContainer.m_motor.limitSwitch.get());
+  public void teleopPeriodic() 
+  {
+    //Position and Velocity of CanSparkMotor in Shuffleboard(SmartDashboard Tab)
+    SmartDashboard.getNumber("Position of CanSparkMotor", RobotContainer.m_motor.CanSparkMotorPosition());
+    SmartDashboard.getNumber("Velocity of CanSparkMotor", RobotContainer.m_motor.CanSparkMotorVelocity());
+
+    //Position and Velocity of TalonFXMotor in Shuffleboard(SmartDashboard Tab)
+    //SmartDashboard.getNumber("Position of CanSparkMotor", RobotContainer.m_talonFXMotor.get());
+    //SmartDashboard.getNumber("Velocity of CanSparkMotor", RobotContainer.m_talonFXMotor.TalonFXMotorSpeed());
+
   }
 
   @Override

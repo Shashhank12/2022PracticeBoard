@@ -4,11 +4,17 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Gyro extends SubsystemBase {
+public class OnBoardGyro extends SubsystemBase {
+  //public ADXRS450_Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
   /** Creates a new Gyro. */
-  public Gyro() {}
+  public OnBoardGyro() 
+  {
+    //double angle = gyro.getAngle();
+    //System.out.println(angle);
+  }
 
   @Override
   public void periodic() {

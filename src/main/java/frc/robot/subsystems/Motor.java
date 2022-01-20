@@ -8,8 +8,14 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import edu.wpi.first.wpilibj.DigitalInput;
-;
+
+//import edu.wpi.first.math.controller.PIDController;
+//import edu.wpi.first.networktables.NetworkTableEntry;
+//import edu.wpi.first.wpilibj.DigitalInput;
+//import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+//import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 /*
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
@@ -19,18 +25,22 @@ import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
+//For Shuffleboard
+
+
 //Public class
 public class Motor extends SubsystemBase 
 {
-  public DigitalInput limitSwitch = new DigitalInput(Constants.limitswitchport);
+  
   /** Creates a new Motor. */
-  public CANSparkMax CanSparkMotor = new CANSparkMax(Constants.motorport, MotorType.kBrushless);
+  public CANSparkMax CanSparkMotor = new CANSparkMax(Constants.motorPort, MotorType.kBrushless);
+  //public WPI_TalonFX MotorWithWheel = new WPI_TalonFX(Constants.talonfxmotor1port);
   //public ADXRS450_Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
   //CanSparkMotorPID
-  public static final double CanSparkMotorP = 0.00005;
+  public static final double CanSparkMotorP = 0.0005;
   public static final double CanSparkMotorI = 0.000001;
-  public static final double CanSparkMotorD = 0.00000001;
+  public static final double CanSparkMotorD = 0.00003;
   
   public Motor()
   {
@@ -40,7 +50,13 @@ public class Motor extends SubsystemBase
     CanSparkMotor.getPIDController().setOutputRange(-0.5, 0.5);
     CanSparkMotor.getEncoder().setPosition(0);
     CanSparkMotor.getEncoder().setPositionConversionFactor(1024);
-
+    SmartDashboard.putNumber("Subsystem Layout", CanSparkMotorP);
+    SmartDashboard.putNumber("I Value", CanSparkMotorP);
+    
+  }
+  public double TestRandom()
+  {
+    return Math.random();
   }
 
   public void setSpeed(double speed)
@@ -48,24 +64,26 @@ public class Motor extends SubsystemBase
     //CanSparkMotor.getPIDController().setReference(speed, ControlType.kDutyCycle);
     //CanSparkMotor.set(speed); 
   }
+  public void setPosition(double position)
+  {
+    CanSparkMotor.getPIDController().setReference(position, ControlType.kPosition);
+  }
+
+  public double CanSparkMotorPosition()
+  {
+    return CanSparkMotor.getEncoder().getPosition();
+  }
+  
+  public double CanSparkMotorVelocity()
+  {
+    return CanSparkMotor.getEncoder().getVelocity();
+  }
   
   @Override
   public void periodic() 
   {
-    CanSparkMotor.getPIDController().setReference(1024, ControlType.kPosition);
-    System.out.println(CanSparkMotor.getEncoder().getPosition());
-    //double angle = gyro.getAngle();
-    //System.out.println(angle);
-    /*if(limitSwitch.get())
-    {
-       System.out.println("Switch is on");
-       LOLE.getPIDController().setReference(0.5, ControlType.kDutyCycle);
-    }
-    else
-    {
-      System.out.println("Switch is off");
-      LOLE.getPIDController().setReference(0, ControlType.kDutyCycle);
-    }*/
+    //CanSparkMotor.setSpeed(0.5);
   }
 
 }
+
