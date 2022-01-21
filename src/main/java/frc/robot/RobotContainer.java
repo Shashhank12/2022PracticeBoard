@@ -14,6 +14,7 @@ import frc.robot.commands.OnBoardGyro;
 import frc.robot.subsystems.Motor;
 import frc.robot.subsystems.TalonFXMotor;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -24,10 +25,21 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
+  //Commands and Subsystem for Motor
   public static final Motor m_motor = new Motor();
-  public static final LimitSwitch m_limitswitch = new LimitSwitch();
+  public static final frc.robot.commands.Motor cm_motor = new frc.robot.commands.Motor();
+
+  //Commands and Subsystem for LimitSwitch
+  public static final frc.robot.subsystems.LimitSwitch m_limitSwitch = new frc.robot.subsystems.LimitSwitch();
+  public static final LimitSwitch cm_limitSwitch = new LimitSwitch();
+
+  //Commands and Subsystem for TalonFXMotor
   public static final TalonFXMotor m_talonFXMotor = new TalonFXMotor();
-  public static final OnBoardGyro m_onboardGyro = new OnBoardGyro();
+  public static final frc.robot.commands.TalonFXMotor cm_talonFXMotor = new frc.robot.commands.TalonFXMotor()
+
+  //Commands and Subsystem for Gyro
+  public static final OnBoardGyro cm_gyro = new OnBoardGyro();
+  public static final frc.robot.subsystems.OnBoardGyro m_onboardGyro = new frc.robot.subsystems.OnBoardGyro();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

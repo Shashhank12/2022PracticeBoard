@@ -4,20 +4,26 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.ADIS16470_IMU;
+//import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+//import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class OnBoardGyro extends SubsystemBase {
   //public ADXRS450_Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
+
+  public static final ADIS16470_IMU imu = new ADIS16470_IMU();
   /** Creates a new Gyro. */
   public OnBoardGyro() 
   {
-    //double angle = gyro.getAngle();
     //System.out.println(angle);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    
+    System.out.println(imu.getAngle());
+
   }
 }

@@ -9,6 +9,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.ADIS16470_IMU;
 //import edu.wpi.first.math.controller.PIDController;
 //import edu.wpi.first.networktables.NetworkTableEntry;
 //import edu.wpi.first.wpilibj.DigitalInput;
@@ -16,8 +17,9 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 //import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-/*
+
 import edu.wpi.first.wpilibj.SPI;
+/*
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
@@ -34,6 +36,7 @@ public class Motor extends SubsystemBase
   
   /** Creates a new Motor. */
   public CANSparkMax CanSparkMotor = new CANSparkMax(Constants.motorPort, MotorType.kBrushless);
+  public static final ADIS16470_IMU imu = new ADIS16470_IMU();
   //public WPI_TalonFX MotorWithWheel = new WPI_TalonFX(Constants.talonfxmotor1port);
   //public ADXRS450_Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
@@ -83,6 +86,7 @@ public class Motor extends SubsystemBase
   public void periodic() 
   {
     //CanSparkMotor.setSpeed(0.5);
+    //System.out.println(imu.getAngle());
   }
 
 }

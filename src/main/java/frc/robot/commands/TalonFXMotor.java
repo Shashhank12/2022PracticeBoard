@@ -26,7 +26,6 @@ public class TalonFXMotor extends CommandBase {
   @Override
   public void execute() 
   {
-    
     //RobotContainer.m_talonFXMotor.setPosition(1);
   }
 

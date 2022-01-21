@@ -40,14 +40,14 @@ public class Robot extends TimedRobot
     m_robotContainer = new RobotContainer();
 
     //ShuffleBoard in SmartDashboard tab: PID Values for CANSparkMotor
-    SmartDashboard.putNumber("P Value for SparkMax", Motor.CanSparkMotorP);
-    SmartDashboard.putNumber("I Value for SparkMax", Motor.CanSparkMotorI);
-    SmartDashboard.putNumber("D Value for SparkMax", Motor.CanSparkMotorD);
+    //SmartDashboard.putNumber("P Value for SparkMax", Motor.CanSparkMotorP);
+    //SmartDashboard.putNumber("I Value for SparkMax", Motor.CanSparkMotorI);
+    //SmartDashboard.putNumber("D Value for SparkMax", Motor.CanSparkMotorD);
 
     //ShuffleBoard in SmartDashboard tab: PID Values for TalonFXMotor
-    SmartDashboard.putNumber("P Value for TalonFX", TalonFXMotor.TalonFX_P);
-    SmartDashboard.putNumber("I Value for TalonFX", TalonFXMotor.TalonFX_I);
-    SmartDashboard.putNumber("D Value for TalonFX", TalonFXMotor.TalonFX_D);
+    //SmartDashboard.putNumber("P Value for TalonFX", TalonFXMotor.TalonFX_P);
+    //SmartDashboard.putNumber("I Value for TalonFX", TalonFXMotor.TalonFX_I);
+    //SmartDashboard.putNumber("D Value for TalonFX", TalonFXMotor.TalonFX_D);
 
   }
 
@@ -108,8 +108,8 @@ public class Robot extends TimedRobot
   public void teleopPeriodic() 
   {
     //Position and Velocity of CanSparkMotor in Shuffleboard(SmartDashboard Tab)
-    SmartDashboard.getNumber("Position of CanSparkMotor", RobotContainer.m_motor.CanSparkMotorPosition());
-    SmartDashboard.getNumber("Velocity of CanSparkMotor", RobotContainer.m_motor.CanSparkMotorVelocity());
+    //SmartDashboard.getNumber("Position of CanSparkMotor", RobotContainer.m_motor.CanSparkMotorPosition());
+    //SmartDashboard.getNumber("Velocity of CanSparkMotor", RobotContainer.m_motor.CanSparkMotorVelocity());
 
     //Position and Velocity of TalonFXMotor in Shuffleboard(SmartDashboard Tab)
     //SmartDashboard.getNumber("Position of CanSparkMotor", RobotContainer.m_talonFXMotor.get());

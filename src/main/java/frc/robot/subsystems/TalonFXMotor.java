@@ -25,6 +25,7 @@ public class TalonFXMotor extends SubsystemBase
     WPI_TalonFX MotorWithWheel = new WPI_TalonFX(3);
 
   //PID for TalonFX
+    public static final double TalonFX_F = 0;
     public static final double TalonFX_P = 0.001;
     public static final double TalonFX_I = 0.000000000;
     public static final double TalonFX_D = 0.00000000;
@@ -33,11 +34,12 @@ public class TalonFXMotor extends SubsystemBase
   public TalonFXMotor() 
   {
     MotorWithWheel.configFactoryDefault();
-    MotorWithWheel.setSelectedSensorPosition(0);
+    MotorWithWheel.setSelectedSensorPosition(0, 0, 30);
     MotorWithWheel.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor, 0, 30);
     MotorWithWheel.configAllowableClosedloopError(0, 0, 0);
     MotorWithWheel.setSensorPhase(true);
     //Initialize PID
+    MotorWithWheel.config_kF(0, TalonFX_F, 0);
     MotorWithWheel.config_kP(0, TalonFX_P, 0);
     MotorWithWheel.config_kI(0, TalonFX_I, 0);
     MotorWithWheel.config_kD(0, TalonFX_D, 0);
@@ -84,9 +86,13 @@ public class TalonFXMotor extends SubsystemBase
   {
     //MotorWithWheel.set(ControlMode.Position, 0, DemandType.ArbitraryFeedForward, -0.1);
     //MotorWithWheel.set(ControlMode.Position, 1);
-    MotorWithWheel.set(TalonFXControlMode.Position, 0, DemandType.AuxPID, 0);
+    //MotorWithWheel.set(TalonFXControlMode.Position, 0, DemandType.AuxPID, 0);
+
+    MotorWithWheel.set(ControlMode.Position, 0);
+    //System.out.print(MotorWithWheel.getMotorOutputVoltage());
+    //System.out.println(MotorWithWheel.getClosedLoopError(0));
     //System.out.println(MotorWithWheel.getSelectedSensorPosition());
-    
+
     //System.out.println(MotorWithWheel.getDescription());
     
     // This method will be called once per scheduler run
