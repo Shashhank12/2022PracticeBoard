@@ -27,7 +27,7 @@ public class RobotContainer {
 
   //Commands and Subsystem for Motor
   public static final Motor m_motor = new Motor();
-  public static final frc.robot.commands.Motor cm_motor = new frc.robot.commands.Motor();
+  //public static final frc.robot.commands.Motor cm_motor = new frc.robot.commands.Motor();
 
   //Commands and Subsystem for LimitSwitch
   public static final frc.robot.subsystems.LimitSwitch m_limitSwitch = new frc.robot.subsystems.LimitSwitch();
@@ -35,7 +35,7 @@ public class RobotContainer {
 
   //Commands and Subsystem for TalonFXMotor
   public static final TalonFXMotor m_talonFXMotor = new TalonFXMotor();
-  public static final frc.robot.commands.TalonFXMotor cm_talonFXMotor = new frc.robot.commands.TalonFXMotor()
+  public static final frc.robot.commands.TalonFXMotor cm_talonFXMotor = new frc.robot.commands.TalonFXMotor();
 
   //Commands and Subsystem for Gyro
   public static final OnBoardGyro cm_gyro = new OnBoardGyro();

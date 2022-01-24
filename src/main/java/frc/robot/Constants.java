@@ -22,4 +22,5 @@ public final class Constants
     
     //TalonFX MotorPort
     public static final int talonFXMotorPort = 3;
+    public static final int PIDSlot = 0;
 }

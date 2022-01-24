@@ -36,7 +36,7 @@ public class Motor extends SubsystemBase
   
   /** Creates a new Motor. */
   public CANSparkMax CanSparkMotor = new CANSparkMax(Constants.motorPort, MotorType.kBrushless);
-  public static final ADIS16470_IMU imu = new ADIS16470_IMU();
+  //public static final ADIS16470_IMU imu = new ADIS16470_IMU();
   //public WPI_TalonFX MotorWithWheel = new WPI_TalonFX(Constants.talonfxmotor1port);
   //public ADXRS450_Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
@@ -53,8 +53,8 @@ public class Motor extends SubsystemBase
     CanSparkMotor.getPIDController().setOutputRange(-0.5, 0.5);
     CanSparkMotor.getEncoder().setPosition(0);
     CanSparkMotor.getEncoder().setPositionConversionFactor(1024);
-    SmartDashboard.putNumber("Subsystem Layout", CanSparkMotorP);
-    SmartDashboard.putNumber("I Value", CanSparkMotorP);
+    //SmartDashboard.putNumber("Subsystem Layout", CanSparkMotorP);
+    //SmartDashboard.putNumber("I Value", CanSparkMotorP);
     
   }
   public double TestRandom()

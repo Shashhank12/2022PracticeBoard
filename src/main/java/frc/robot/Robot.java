@@ -45,9 +45,9 @@ public class Robot extends TimedRobot
     //SmartDashboard.putNumber("D Value for SparkMax", Motor.CanSparkMotorD);
 
     //ShuffleBoard in SmartDashboard tab: PID Values for TalonFXMotor
-    //SmartDashboard.putNumber("P Value for TalonFX", TalonFXMotor.TalonFX_P);
-    //SmartDashboard.putNumber("I Value for TalonFX", TalonFXMotor.TalonFX_I);
-    //SmartDashboard.putNumber("D Value for TalonFX", TalonFXMotor.TalonFX_D);
+    //Shuffleboard.putNumber("P Value for TalonFX", TalonFXMotor.TalonFX_P);
+    //Shuffleboard.putNumber("I Value for TalonFX", TalonFXMotor.TalonFX_I);
+    //Shuffleboard.getTab("TalonFX Tab", TalonFXMotor.TalonFX_P);
 
   }
 
