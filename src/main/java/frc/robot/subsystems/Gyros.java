@@ -8,20 +8,21 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.ADIS16470_IMU.IMUAxis;
 
 //import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 //import edu.wpi.first.wpilibj.AnalogGyro;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class OnBoardGyro extends SubsystemBase {
+public class Gyros extends SubsystemBase {
   //public ADXRS450_Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
-  ADIS16470_IMU imu = new ADIS16470_IMU();
+  ADIS16470_IMU imu = new ADIS16470_IMU(IMUAxis.kX, SPI.Port.kOnboardCS0, null);
   /** Creates a new Gyro. */
-  AHRS Coolgyro = new AHRS(SPI.Port.kMXP);
+  //AHRS Coolgyro = new AHRS(SPI.Port.kMXP);
 
-  public OnBoardGyro() 
+  public Gyros() 
   {
     //System.out.println(angle);
   }

@@ -6,15 +6,13 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
-import frc.robot.commands.LimitSwitch;
-import frc.robot.commands.OnBoardGyro;
-//import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.Motor;
+import frc.robot.commands.Gyros.ADIS16470_IMU;
+import frc.robot.commands.Gyros.ADXRS450Gyro;
+import frc.robot.commands.Gyros.NavxAHRSGyro;
+import frc.robot.commands.Motors.REV;
+import frc.robot.commands.Switch.LimitSwitch;
+import frc.robot.subsystems.NeoMotor;
 import frc.robot.subsystems.TalonFXMotor;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -25,24 +23,35 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
-  //Commands and Subsystem for Motor
-  public static final Motor m_motor = new Motor();
-  //public static final frc.robot.commands.Motor cm_motor = new frc.robot.commands.Motor();
-
-  //Commands and Subsystem for LimitSwitch
-  public static final frc.robot.subsystems.LimitSwitch m_limitSwitch = new frc.robot.subsystems.LimitSwitch();
+  //Subsystems
+    //Neo subsystem initialized
+      public static final NeoMotor m_motor = new NeoMotor();
+    //LimitSwitch subsystem initialized
+      public static final frc.robot.subsystems.LimitSwitch m_limitSwitch = new frc.robot.subsystems.LimitSwitch();
+    //Talon subsystem initialized
+      public static final TalonFXMotor m_talonFXMotor = new TalonFXMotor();
+    //Gyros subsystem(ADXRS, ADIS, AHRS) initialized
+          public static final frc.robot.subsystems.Gyros m_onboardGyro = new frc.robot.subsystems.Gyros();
+  //Commands
+    //Gyros
+      //ADIS16470 initialized
+        public static final ADIS16470_IMU cm_IMU = new ADIS16470_IMU();
+      //ADXRS450 initialized
+        public static final ADXRS450Gyro cm_SuckyGyro = new ADXRS450Gyro();
+      //NavxAHRSGyro initialized
+        public static final NavxAHRSGyro cm_PitchRollYaw = new NavxAHRSGyro();
+    //Motors
+      //TalonFX Initialized
+        public static final frc.robot.commands.Motors.Falcon500 cm_CTREFalcon = new frc.robot.commands.Motors.Falcon500();
+      //Neo Initialized
+        public static final REV cm_REVNeoMotor = new REV();
+  //Switch
+    //LimitSwitch
   public static final LimitSwitch cm_limitSwitch = new LimitSwitch();
 
-  //Commands and Subsystem for TalonFXMotor
-  public static final TalonFXMotor m_talonFXMotor = new TalonFXMotor();
-  public static final frc.robot.commands.TalonFXMotor cm_talonFXMotor = new frc.robot.commands.TalonFXMotor();
-
-  //Commands and Subsystem for Gyro
-  public static final OnBoardGyro cm_gyro = new OnBoardGyro();
-  public static final frc.robot.subsystems.OnBoardGyro m_onboardGyro = new frc.robot.subsystems.OnBoardGyro();
-
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
-  public RobotContainer() {
+  public RobotContainer() 
+  {
     // Configure the button bindings
     configureButtonBindings();
   }

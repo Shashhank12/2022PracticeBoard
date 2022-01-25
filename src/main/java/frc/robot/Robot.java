@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 //import edu.wpi.first.wpilibj.DigitalInput; 
-import frc.robot.subsystems.Motor;
+import frc.robot.subsystems.NeoMotor;
 import frc.robot.subsystems.TalonFXMotor;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -118,14 +118,13 @@ public class Robot extends TimedRobot
   }
 
   @Override
-  public void testInit() {
+  public void testInit() 
+  {
     // Cancels all running commands at the start of test mode.
     CommandScheduler.getInstance().cancelAll();
   }
 
   /** This function is called periodically during test mode. */
   @Override
-  public void testPeriodic() 
-  {
-  }
+  public void testPeriodic() {}
 }

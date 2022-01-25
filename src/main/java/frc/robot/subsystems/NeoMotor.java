@@ -31,7 +31,7 @@ import frc.robot.Constants;
 
 
 //Public class
-public class Motor extends SubsystemBase 
+public class NeoMotor extends SubsystemBase 
 {
   
   /** Creates a new Motor. */
@@ -45,7 +45,7 @@ public class Motor extends SubsystemBase
   public static final double CanSparkMotorI = 0.000001;
   public static final double CanSparkMotorD = 0.00003;
   
-  public Motor()
+  public NeoMotor()
   {
     CanSparkMotor.getPIDController().setP(CanSparkMotorP);
     CanSparkMotor.getPIDController().setI(CanSparkMotorI);
